@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'heroku'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end
@@ -41,4 +42,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby "2.3.3"
