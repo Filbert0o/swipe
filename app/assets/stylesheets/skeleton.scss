@@ -1,0 +1,77 @@
+// @import "skeleton/loader";
+// @import "path/to/bower_components/normalize-scss/sass/normalize/import-now"; // import normalize-scss
+// @import "path/to/bower_components/skeleton-sass/skeleton/core/config"; // Skeleton Sass core loader
+//
+// // import default theme variables
+// @import "path/to/bower_components/skeleton-sass/skeleton/themes/fresh/vars"; // theme variable overrides
+//
+// // import default theme styles
+// @import "path/to/bower_components/skeleton-sass/skeleton/themes/fresh/include_components"; // theme base styles
+// @import "path/to/bower_components/skeleton-sass/skeleton/themes/fresh/grid"; // theme grid styles
+
+
+// Import Skeleton Defaults
+@import "skeleton/loader";
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+// Import Custom Theme Styles
+@import 'skeleton/themes/swipe/*';
+
+// Overwrite any theme styles
+.flash {
+  position: absolute;
+}
+
+html, body {
+  min-width: 1124px;
+  background-color: $maroon;
+}
+
+.custom-button, input[type='submit'] {
+  padding: 7px 15px;
+  display: inline-block;
+  border: 1px solid rgba(250,240,230,1);
+  vertical-align: middle;
+  margin: 0 0 0 20px;
+  color: rgba(250,240,230,1);
+  text-decoration: none;
+  transition: all .1s ease-in;
+  height: auto;
+  line-height: 100%;
+  font-family: 'Raleway';
+  cursor: pointer;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: normal;
+
+  &:hover{
+    background-color: rgba(250,240,230,1);
+    color: #211216;
+  }
+}
+
+.tile-button {
+  color: $maroon;
+  border-color: $maroon;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+
+.active {
+  background-color: rgba(250,240,230,1);
+  color: #211216;
+  cursor: default;
+}
+
+a:visited {
+  color: $off-white;
+  opacity: 0.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+}

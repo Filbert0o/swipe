@@ -15,6 +15,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'factory_bot'
+gem 'plaid'
+gem 'figaro'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

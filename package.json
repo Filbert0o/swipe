@@ -1,6 +1,7 @@
 {
   "name": "swipe",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -32,8 +33,9 @@
     "react-addons-test-utils": "^15.6.0",
     "redux-devtools": "3.2.0",
     "sass-loader": "^6.0.3",
+    "skeleton-sass-official": "^3.1.5",
     "static-site-generator-webpack-plugin": "^3.4.1",
-    "webpack-dev-server": "^2.9.0",
+    "webpack-dev-server": "^2.9.7",
     "whatwg-fetch": "^2.0.3"
   },
   "dependencies": {

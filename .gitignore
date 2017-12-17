@@ -17,10 +17,13 @@
 /yarn-error.log
 
 .byebug_history
+.env
 
 /node_modules
 /app/assets/javascripts/bundle.js
 /react/coverage
 
 /coverage
-.env
+
+# Ignore application configuration
+/config/application.yml
