@@ -1,0 +1,3 @@
+class PlaidAuthentication < ApplicationRecord
+
+end
