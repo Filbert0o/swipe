@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'carrierwave'
 gem 'rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -38,6 +40,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'simplecov', '>=0.3.8', require: false
 end
 
 group :production do

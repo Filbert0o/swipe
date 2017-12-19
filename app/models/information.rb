@@ -1,3 +1,2 @@
 class Information < ApplicationRecord
-
 end
