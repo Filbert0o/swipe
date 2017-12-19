@@ -1,3 +1,4 @@
+# BalanceSerializer
 class BalanceSerializer < ActiveModel::Serializer
   attributes :available,
              :current,

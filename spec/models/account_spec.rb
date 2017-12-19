@@ -36,5 +36,4 @@ describe Account, type: :model do
     expect(account.errors[:subtype]).to_not be_blank
     expect(account.errors[:maintype]).to_not be_blank
   end
-
 end
