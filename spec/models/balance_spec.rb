@@ -9,7 +9,7 @@ describe Balance, type: :model do
 
   it { should have_valid(:account_id).when(1, 100) }
 
-  it "has an account" do
+  it 'has an account' do
     account = Account.create(
       id: 1,
       account_id: '123456789',
