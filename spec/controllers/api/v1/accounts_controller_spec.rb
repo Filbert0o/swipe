@@ -29,7 +29,6 @@ describe Api::V1::AccountsController, type: :controller do
       expect(returned_json[0]['official_name']).to eq 'Regular Savings'
       expect(returned_json[0]['subtype']).to eq 'savings'
       expect(returned_json[0]['maintype']).to eq 'depository'
-
     end
   end
 end

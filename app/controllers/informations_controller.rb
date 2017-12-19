@@ -1,5 +1,4 @@
+# InformationsController
 class InformationsController < ApplicationController
-  def index
-    #put here
-  end
+  def index; end
 end
