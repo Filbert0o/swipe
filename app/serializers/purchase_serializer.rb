@@ -1,9 +1,10 @@
 # Transaction Serializer
 class PurchaseSerializer < ActiveModel::Serializer
-  attributes  :account_id,
+  attributes  :id,
+              :account_id,
               :account_owner,
               :amount,
-              :categories,
+              :category,
               :category_id,
               :transaction_date,
               :location,
@@ -14,7 +15,10 @@ class PurchaseSerializer < ActiveModel::Serializer
               :transaction_id,
               :transaction_type
   belongs_to :account
-  has_many :categories
   has_one :location
   has_one :payment
+
+  def category
+    object.categories.map(&:name)
+  end
 end

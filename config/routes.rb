@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "informations#index"
 
   resources :accounts, only: [:index]
+  resources :purchases, only: [:index]
 
   namespace :api do
     namespace :v1 do
