@@ -1,3 +1,4 @@
+# joins table for catergories and purchases
 class Group < ApplicationRecord
   belongs_to :purchase
   belongs_to :category

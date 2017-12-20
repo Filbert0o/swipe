@@ -1,3 +1,4 @@
+# purchase
 class Purchase < ApplicationRecord
   belongs_to :account
   has_one :location
