@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218165003) do
+ActiveRecord::Schema.define(version: 20171220134531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,73 @@ ActiveRecord::Schema.define(version: 20171218165003) do
   end
 
   create_table "balances", force: :cascade do |t|
-    t.bigint "account_id"
+    t.bigint "account_id", null: false
     t.float "available"
     t.float "current"
     t.float "limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_balances_on_account_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "purchase_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_groups_on_category_id"
+    t.index ["purchase_id"], name: "index_groups_on_purchase_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.bigint "purchase_id", null: false
+    t.string "address"
+    t.string "city"
+    t.string "lat"
+    t.string "lon"
+    t.string "state"
+    t.string "store_number"
+    t.string "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_id"], name: "index_locations_on_purchase_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "purchase_id", null: false
+    t.string "by_order_of"
+    t.string "payee"
+    t.string "payer"
+    t.string "payment_method"
+    t.string "payment_processor"
+    t.string "ppd_id"
+    t.string "reason"
+    t.string "reference_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_id"], name: "index_payments_on_purchase_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.string "account_owner"
+    t.float "amount", null: false
+    t.string "category_id"
+    t.string "transaction_date", null: false
+    t.string "name", null: false
+    t.boolean "pending"
+    t.string "pending_transaction_id"
+    t.string "transaction_id", null: false
+    t.string "transaction_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_purchases_on_account_id"
   end
 
 end
