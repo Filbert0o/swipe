@@ -6,7 +6,7 @@ const NavBar = props =>{
     <div>
       <div>
         <div id='billboard'>
-          <h1>SWIPE</h1>
+          <h2>SWIPE</h2>
         </div>
         <div id='nav-bar' className='row'>
           <div className="two columns">

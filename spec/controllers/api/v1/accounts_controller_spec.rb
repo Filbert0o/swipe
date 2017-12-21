@@ -14,7 +14,7 @@ describe Api::V1::AccountsController, type: :controller do
   end
 
   describe 'GET#index' do
-    it 'should return a list of all the venues' do
+    it 'should return a list of all the accounts' do
       get :index
       returned_json = JSON.parse(response.body)
       returned_json = returned_json['accounts']
