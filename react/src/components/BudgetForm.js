@@ -30,7 +30,7 @@ class BudgetForm extends Component {
         body.budget = 0
       }
       this.setState({
-        budget: body.budget
+        budget: body.budget.budget
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -70,7 +70,7 @@ class BudgetForm extends Component {
   handleFormSubmit(event){
     event.preventDefault();
     let formPayLoad = {
-      budget: this.state.budget
+      budget: Number(this.state.budget)
     };
     this.setBudget(formPayLoad);
   }

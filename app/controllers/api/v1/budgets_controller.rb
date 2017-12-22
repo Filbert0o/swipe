@@ -9,7 +9,6 @@ class Api::V1::BudgetsController < ApplicationController
   end
 
   def create
-    binding.pry
     user_budget = Budget.new(budget_params)
     user = current_user
     user_budget.user = user # need a user table
@@ -19,7 +18,7 @@ class Api::V1::BudgetsController < ApplicationController
       existing_budget.budget = user_budget.budget
       existing_budget.save
       render json: existing_budget
-    elsif budget.valid?
+    elsif user_budget.valid?
       user_budget.save
       render json: user_budget
     else
@@ -30,6 +29,6 @@ class Api::V1::BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.require(:budget).permit(:budget)
+    params.permit(:budget)
   end
 end

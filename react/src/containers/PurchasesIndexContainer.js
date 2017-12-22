@@ -49,10 +49,10 @@ class PurchasesIndexContainer extends Component {
     .then(response => response.json())
     .then(body => {
       if(body.budget === null){
-        body.budget = 0
+        body.budget.budget = 0
       }
       this.setState({
-        budget: body.budget,
+        budget: body.budget.budget,
         currentUser: body.user
       })
     })
