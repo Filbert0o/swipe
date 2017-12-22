@@ -1,23 +1,27 @@
 # BudgetsController
-class BudgetsController < ApplicationController
-  def show
-    budget = Budget.find_by(:user_id)
-    render json: budget
+class Api::V1::BudgetsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
+  def index
+    user = current_user
+    user_budget = Budget.find_by(user_id: user[:id])
+    render json: { budget: user_budget, user: current_user }
   end
 
   def create
-    budget = Budget.new(budget_params)
-    user = user_id
-    budget.user = user # need a user table
+    binding.pry
+    user_budget = Budget.new(budget_params)
+    user = current_user
+    user_budget.user = user # need a user table
 
-    existing_budget = Budget.find_by(user: budget.user)
+    existing_budget = Budget.find_by(user: user_budget.user)
     if existing_budget
-      existing_budget.budget = budget.budget
+      existing_budget.budget = user_budget.budget
       existing_budget.save
       render json: existing_budget
     elsif budget.valid?
-      budget.save
-      render json: budget
+      user_budget.save
+      render json: user_budget
     else
       render json: { error: vote.errors.full_messages }, status: :unprocessable_entity
     end

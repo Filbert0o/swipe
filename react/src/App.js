@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import InformationsIndex from "./InformationsIndex"
 import AccountsIndexContainer from "./containers/AccountsIndexContainer";
 import PurchasesIndexContainer from "./containers/PurchasesIndexContainer";
-
+import SettingsContainer from "./containers/SettingsContainer"
 
 const App = props => {
   return(
@@ -14,6 +14,7 @@ const App = props => {
           <IndexRoute component={InformationsIndex} />
           <Route path='/accounts' component={AccountsIndexContainer} />
           <Route path='/purchases' component={PurchasesIndexContainer} />
+          <Route path='/settings' component={SettingsContainer} />
         </Route>
       </Router>
     </div>

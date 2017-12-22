@@ -6,23 +6,23 @@ const NavBar = props =>{
     <div>
       <div>
         <div id='billboard'>
-          <h1>SWIPE</h1>
+          <h2><Link to={`/`}>SWIPE</Link></h2>
         </div>
         <div id='nav-bar' className='row'>
           <div className="two columns">
-            Accounts
+            <button><Link to={`/accounts`}>Account</Link></button>
           </div>
           <div className="two columns">
             Subscriptions
           </div>
           <div className="two columns">
-            Purchased
+            <button><Link to={`/purchases`}>Purchase</Link></button>
           </div>
           <div className="two columns">
             Sandbox
           </div>
           <div className="two columns">
-            Settings
+            <button><Link to={`/settings`}>Setting</Link></button>
           </div>
           <div className="two columns">
             BlankSpace

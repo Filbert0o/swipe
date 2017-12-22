@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import PurchasesIndexTile from "../components/PurchasesIndexTile"
 import PurchaseTotal from "../components/PurchaseTotal"
+import BudgetTile from "../components/BudgetTile"
 
 class PurchasesIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      purchases: []
+      purchases: [],
+      budget: 0,
+      currentUser: null
     }
   }
 
@@ -30,12 +33,38 @@ class PurchasesIndexContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  getBudget(){
+    fetch(`/api/v1/budgets`, {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      if(body.budget === null){
+        body.budget = 0
+      }
+      this.setState({
+        budget: body.budget,
+        currentUser: body.user
+      })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   componentDidMount(){
     this.getPurchases();
+    this.getBudget();
   }
 
   render() {
-
     let purchases = this.state.purchases.map((purchase) => {
       return(
         <PurchasesIndexTile
@@ -53,6 +82,9 @@ class PurchasesIndexContainer extends Component {
       <div>
         <PurchaseTotal
           purchases={this.state.purchases}
+        />
+        <BudgetTile
+          budget={this.state.budget}
         />
         {purchases}
       </div>

@@ -6,7 +6,7 @@ const InformationsIndex = props =>{
     <div>
       <div className='row'>
         <div className='six columns'>
-          Accounts
+          <Link to={`/accounts`}>Account</Link>
         </div>
         <div className='six columns'>
           Subscriptions
@@ -14,7 +14,7 @@ const InformationsIndex = props =>{
       </div>
       <div className='row'>
         <div className='six columns'>
-          Purchases
+          <Link to={`/purchases`}>Purchase</Link>
         </div>
         <div className='six columns'>
           Sandbox
