@@ -59,6 +59,7 @@
             product: ['transactions'],
             key: '<%= ENV['PLAID_PUBLIC_KEY'] %>',
             onSuccess: function(public_token) {
+                console.log('public_token: ', public_token);
                 $.post('/plaid_authentications', {public_token: public_token}, function() {
                     $('#container').fadeOut('fast', function() {
                         $('#intro').hide();
