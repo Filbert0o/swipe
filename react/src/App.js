@@ -2,13 +2,14 @@ import React from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 import NavBar from './NavBar';
 import Categories from "./containers/Categories"
+import Plaid from "./containers/Plaid"
 
 const App = props =>{
   return(
     <div>
       <Router history={browserHistory}>
         <Route path='/' component={NavBar}>
-          {/* <IndexRoute component={Categories}/> */}
+          <IndexRoute component={Plaid}/>
           {/* <Route path='/venues' component={VenuesIndexContainer}/> */}
           {/* <Route path='/venues/new' component={VenueFormContainer}/>
           <Route path='/venues/:id/edit' component={VenueFormContainer}/>
