@@ -31,9 +31,9 @@ ratings:
   - "**.js"
   - "**.module"
 exclude_paths:
-- app/assets/javascripts/application.js
-- app/assets/javascripts/cable.js
-- config/
-- db/
-- vendor/
-- app/assets/
+- "app/assets/javascripts/application.js"
+- "app/assets/javascripts/cable.js"
+- "config/"
+- "db/"
+- "vendor/"
+- "app/assets/"
