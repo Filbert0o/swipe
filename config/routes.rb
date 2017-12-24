@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root "informations#index"
 
+  resources :settings, only: [:index]
   resources :accounts, only: [:index]
   resources :purchases, only: [:index]
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :accounts, only: [:index]
       resources :purchases, only: [:index]
+      resources :budgets, only: [:index, :create]
     end
   end
 end
