@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def plaid_client
-    @plaid_client ||= Plaid::Client.new(env: :development,
-      client_id: ENV['PLAID_CLIENT_ID'],
-      secret: ENV['PLAID_SECRET'],
+    @plaid_client ||= Plaid::Client.new(
+      env:        :development,
+      client_id:  ENV['PLAID_CLIENT_ID'],
+      secret:     ENV['PLAID_SECRET'],
       public_key: ENV['PLAID_PUBLIC_KEY'])
   end
 
