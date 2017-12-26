@@ -4,10 +4,13 @@ const PurchaseTotal = props =>{
 
   const amounts = []
   props.purchases.forEach((purchase) => {
-    let categories = purchase.category.map(type => {
-      return type
-    })
-    if (!categories.includes("Deposit")) {
+    let currentCategories = []
+    if (purchase.category) {
+      currentCategories = purchase.category.map(type => {
+        return type
+      })
+    }
+    if (!currentCategories.includes("Deposit")) {
       amounts.push(purchase.amount)
     }
   })
