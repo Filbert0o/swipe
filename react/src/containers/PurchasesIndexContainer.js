@@ -14,7 +14,9 @@ class PurchasesIndexContainer extends Component {
   }
 
   getPurchases() {
-    fetch('/api/v1/purchases')
+    fetch('/api/v1/transactions', {
+      credentials: 'same-origin'
+    })
     .then(response => {
       if (response.ok) {
         return response;
@@ -27,7 +29,7 @@ class PurchasesIndexContainer extends Component {
     .then(response => response.json())
     .then(body => {
       this.setState({
-       purchases: body.purchases
+       purchases: body.transactions
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -68,13 +70,13 @@ class PurchasesIndexContainer extends Component {
     let purchases = this.state.purchases.map((purchase) => {
       return(
         <PurchasesIndexTile
-          key={purchase.id}
-          id={purchase.id}
+          key={purchase.transaction_id}
+          id={purchase.transaction_id}
           amount={purchase.amount}
           categories={purchase.category}
-          transactionDate={purchase.transaction_date}
+          transactionDate={purchase.date}
           name={purchase.name}
-          account={purchase.account}
+          // account={purchase.account}
         />
       )
     })

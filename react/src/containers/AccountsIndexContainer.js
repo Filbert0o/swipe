@@ -11,7 +11,9 @@ class App extends Component {
   }
 
   getAccount(){
-    fetch('/api/v1/accounts')
+    fetch('/api/v1/accounts', {
+      credentials: 'same-origin'
+    })
     .then(response => {
       if (response.ok) {
         return response;
@@ -37,17 +39,17 @@ class App extends Component {
     const accounts = this.state.accounts.map((account) => {
       return(
         <AccountsIndexTile
-          key={account.id}
-          id={account.id}
+          key={account.account_id}
+          id={account.account_id}
           accountId={account.account_id}
-          availableBalance={account.balance.available}
-          currentBalance={account.balance.current}
-          limitBalance={account.balance.limit}
+          availableBalance={account.balances.available}
+          currentBalance={account.balances.current}
+          limitBalance={account.balances.limit}
           mask={account.mask}
           name={account.name}
           officialName={account.official_name}
           subtype={account.subtype}
-          maintype={account.maintype}
+          maintype={account.type}
         />
       )
     })

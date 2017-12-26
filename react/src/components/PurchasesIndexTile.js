@@ -1,11 +1,14 @@
 import React from 'react';
 
 const PurchasesIndexTile = props =>{
-  const categories = props.categories.map((category) => {
-    return(
-      <li>{category}</li>
-    )
-  })
+  let currentCategories = []
+  if (props.categories){
+    currentCategories = props.categories.map((category) => {
+      return(
+        <li>{category}</li>
+      )
+    })
+  }
   return(
     <div>
       <div className='purchase-box row'>
