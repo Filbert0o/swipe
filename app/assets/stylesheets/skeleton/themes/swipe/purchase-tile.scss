@@ -1,0 +1,75 @@
+.purchase-box {
+  color: $dark-grey-1;
+  font-size: 20px;
+  text-align: right;
+  padding: 2rem 1rem 2rem 1rem;
+  background-color: $pure-white;
+  box-shadow: 0.3rem 0.5rem $dark-grey-1;
+  border: 2px solid $blue-2;
+  margin-bottom: 3rem;
+
+  .trans-name {
+    font-size: 2.2rem;
+    font-weight: bolder;
+  }
+
+  .trans-amount {
+    font-size: 2.5rem;
+    padding-right: 1rem;
+    box-shadow: 0.3rem 0.3rem $blue-4;
+  }
+}
+
+.purchase-total {
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  color: $off-white;
+  background-color: $navy-blue;
+  text-align: center;
+  border: 4px solid $blue-2;
+  margin-bottom: 3rem;
+
+  h1 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  h4 {
+    color: $light-grey;
+  }
+}
+
+.purchase-budget {
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  color: $off-white;
+  background-color: $navy-blue;
+  text-align: center;
+  // box-shadow: 0.3rem 0.5rem $dark-grey-1;
+  border: 4px solid $blue-2;
+  margin-bottom: 3rem;
+
+  h1 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  h4 {
+    color: $light-grey;
+  }
+}
+
+.same-height {
+  display: -ms-flexbox;
+  .columns {
+    flex: 1;
+  }
+}
+
+#pagination {
+  text-align: center;
+  padding: 40px;
+}
+
+#page-number-container {
+  display: inline-block;
+  margin: auto;
+}

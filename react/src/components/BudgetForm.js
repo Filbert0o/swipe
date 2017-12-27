@@ -78,16 +78,18 @@ class BudgetForm extends Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Budget
-            <input
-              name='budget'
-              type='number'
-              value={this.state.budget}
-              onChange={this.handleBudgetChange}
-            />
-          </label>
-          <input className='button' type='submit' value='Save!' />
+        <form className='budget-form' onSubmit={this.handleFormSubmit}>
+          <div className='row'>
+            <label className='nine columns'>MyBudget
+              <input
+                name='budget'
+                type='number'
+                value={this.state.budget}
+                onChange={this.handleBudgetChange}
+              />
+            </label>
+            <input className='budget-button three columns' type='submit' value='Save!' />
+          </div>
         </form>
       </div>
     )

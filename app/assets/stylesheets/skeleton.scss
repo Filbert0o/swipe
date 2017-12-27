@@ -17,8 +17,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
-// Import Custom Theme Styles
-@import 'skeleton/themes/swipe/*';
 
 // Overwrite any theme styles
 .flash {
@@ -27,16 +25,17 @@
 
 html, body {
   // min-width: 1124px;
-  background-color: $maroon;
+  background-color: $off-white;
 }
 
 .custom-button, input[type='submit'] {
-  padding: 7px 15px;
+  background-color: $off-white;
+  padding: 10px 15px;
   display: inline-block;
-  border: 1px solid rgba(250,240,230,1);
+  border: 1px solid $blue-2;
   vertical-align: middle;
   margin: 0 0 0 20px;
-  color: rgba(250,240,230,1);
+  color: $dark-grey-1;
   text-decoration: none;
   transition: all .1s ease-in;
   height: auto;
@@ -49,21 +48,21 @@ html, body {
   font-weight: normal;
 
   &:hover{
-    background-color: rgba(250,240,230,1);
-    color: #211216;
+    background-color: $dark-grey-1;
+    color: $blue-4;
   }
 }
 
 .tile-button {
-  color: $maroon;
-  border-color: $maroon;
+  color: $off-white;
+  border-color: $off-white;
   font-size: 12px;
   margin: 0 10px 0 0;
 }
 
 .active {
-  background-color: rgba(250,240,230,1);
-  color: #211216;
+  background-color: $dark-grey-1;
+  color: $blue-4;
   cursor: default;
 }
 
@@ -72,6 +71,10 @@ a:visited {
   opacity: 0.4;
 }
 
+// Import Custom Theme Styles
+@import 'skeleton/themes/swipe/*';
+
 h1, h2, h3, h4, h5, h6 {
   color: inherit;
+  margin: 0;
 }

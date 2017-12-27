@@ -22,8 +22,21 @@ const PurchaseTotal = props =>{
   const totalPurchasesAmount = postiveSum + negativeSum
 
   return(
-    <div>
-      <h1>${Math.round(totalPurchasesAmount * 100)/100}</h1>
+    <div className='row same-height'>
+      <div className='six columns'>
+        <div className='purchase-total'>
+          <h4>You Have Spent</h4>
+          <h1>${Math.round(totalPurchasesAmount * 100)/100}</h1>
+          <h4>In the last 30 days</h4>
+        </div>
+      </div>
+      <div className='six columns'>
+        <div className='purchase-budget'>
+          <h4>My Budget</h4>
+          <h1>${props.budget}</h1>
+          <h4>With Purchases: ${Math.round((props.budget - totalPurchasesAmount) * 100)/100}</h4>
+        </div>
+      </div>
     </div>
   )
 }

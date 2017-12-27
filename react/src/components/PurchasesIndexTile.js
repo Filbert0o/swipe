@@ -9,12 +9,17 @@ const PurchasesIndexTile = props =>{
       )
     })
   }
+
+  let toDate = (dateStr) => {
+    let [year, month, day] = dateStr.split('-')
+    return `${month}/${day}`
+  }
   return(
     <div>
       <div className='purchase-box row'>
-        <div className='six columns'>{props.name}</div>
-        <div className='two columns'>{props.transactionDate}</div>
-        <div className='four columns'>${props.amount}</div>
+        <div className='one column trans-date'>{toDate(props.transactionDate)}</div>
+        <div className='seven columns trans-name'>{props.name}</div>
+        <div className='four columns trans-amount'>${props.amount}</div>
       </div>
     </div>
   )

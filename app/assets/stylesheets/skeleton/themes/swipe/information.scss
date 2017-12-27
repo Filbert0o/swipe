@@ -1,5 +1,5 @@
 .info {
-  background-color: #FBA100;
+  background-color: $navy-blue;
   width: 40%;
 
   float: left;
@@ -18,7 +18,7 @@
       letter-spacing: 3px;
       font-weight: 900;
       font-style: italic;
-      color: #666;
+      color: $light-grey;
       margin-bottom: 1.5rem;
     }
 
@@ -28,7 +28,7 @@
 }
 
 .setting {
-  background-color: #FBA100;
+  background-color: $navy-blue;
   width: 50%;
 
   float: right;
@@ -47,7 +47,7 @@
       letter-spacing: 3px;
       font-weight: 900;
       font-style: italic;
-      color: #666;
+      color: $light-grey;
       margin-bottom: 1.5rem;
     }
 

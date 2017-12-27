@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import AccountsIndexTile from "../components/AccountsIndexTile"
+import AccountsIndexTile from "../components/AccountsIndexTile";
+import BankInstitution from "../components/BankInstitution"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      accounts: []
+      accounts: [],
+      institution: ''
     }
 
   }
@@ -32,9 +34,33 @@ class App extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  getInstitution(){
+    fetch('/api/v1/items', {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+       institution: body.institutions.name
+      })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   componentDidMount() {
     this.getAccount();
+    this.getInstitution();
   }
+
   render() {
     const accounts = this.state.accounts.map((account) => {
       return(
@@ -55,6 +81,9 @@ class App extends Component {
     })
     return(
       <div>
+        <BankInstitution
+          institution={this.state.institution}
+        />
         {accounts}
       </div>
     )

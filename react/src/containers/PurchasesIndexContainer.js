@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PurchasesIndexTile from "../components/PurchasesIndexTile"
 import PurchaseTotal from "../components/PurchaseTotal"
-import BudgetTile from "../components/BudgetTile"
 
 class PurchasesIndexContainer extends Component {
   constructor(props) {
@@ -9,8 +8,12 @@ class PurchasesIndexContainer extends Component {
     this.state = {
       purchases: [],
       budget: 0,
-      currentUser: null
+      currentUser: null,
+      currentPage: 1,
+      purchasesPerPage: 10
     }
+
+    this.handlePagination = this.handlePagination.bind(this)
   }
 
   getPurchases() {
@@ -66,8 +69,20 @@ class PurchasesIndexContainer extends Component {
     this.getBudget();
   }
 
+  handlePagination(event) {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }
+
   render() {
-    let purchases = this.state.purchases.map((purchase) => {
+    // const { todos, currentPage, todosPerPage } = this.state;
+
+    const indexOfLastPurchase = this.state.currentPage * this.state.purchasesPerPage;
+    const indexOfFirstVenue = indexOfLastPurchase - this.state.purchasesPerPage;
+    const currentPurchases = this.state.purchases.slice(indexOfFirstVenue, indexOfLastPurchase);
+
+    let purchases = currentPurchases.map((purchase) => {
       return(
         <PurchasesIndexTile
           key={purchase.transaction_id}
@@ -76,19 +91,46 @@ class PurchasesIndexContainer extends Component {
           categories={purchase.category}
           transactionDate={purchase.date}
           name={purchase.name}
-          // account={purchase.account}
         />
+      )
+    })
+
+    // Logic for displaying page numbers
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(this.state.purchases.length / this.state.purchasesPerPage); i++) {
+      pageNumbers.push(i);
+    }
+
+    const renderPageNumbers = pageNumbers.map(number => {
+      let buttonclass;
+      if(this.state.currentPage == number) {
+        buttonclass = 'custom-button active'
+      } else {
+        buttonclass = 'custom-button'
+      }
+      return (
+        <div
+          className={buttonclass}
+          key={number}
+          id={number}
+          onClick={this.handlePagination}
+        >
+          {number}
+        </div>
       )
     })
     return(
       <div>
         <PurchaseTotal
           purchases={this.state.purchases}
-        />
-        <BudgetTile
           budget={this.state.budget}
         />
         {purchases}
+        <div id='pagination'>
+          <div id='page-number-container'>
+            {renderPageNumbers}
+          </div>
+        </div>
       </div>
     )
   }
