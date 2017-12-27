@@ -1289,6 +1289,63 @@ img.scale-with-grid {
   height: 0;
 }
 
+/* line 22, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+.flash {
+  position: absolute;
+}
+
+/* line 26, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+html, body {
+  background-color: #E5E5E5;
+}
+
+/* line 31, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+.custom-button, input[type='submit'] {
+  background-color: #E5E5E5;
+  padding: 10px 15px;
+  display: inline-block;
+  border: 1px solid #0041BF;
+  vertical-align: middle;
+  margin: 0 0 0 20px;
+  color: #3D3D3D;
+  text-decoration: none;
+  transition: all .1s ease-in;
+  height: auto;
+  line-height: 100%;
+  font-family: 'Raleway';
+  cursor: pointer;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: normal;
+}
+/* line 50, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+.custom-button:hover, input[type='submit']:hover {
+  background-color: #3D3D3D;
+  color: #001640;
+}
+
+/* line 56, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+.tile-button {
+  color: #E5E5E5;
+  border-color: #E5E5E5;
+  font-size: 12px;
+  margin: 0 10px 0 0;
+}
+
+/* line 63, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+.active {
+  background-color: #3D3D3D;
+  color: #001640;
+  cursor: default;
+}
+
+/* line 69, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+a:visited {
+  color: #E5E5E5;
+  opacity: 0.4;
+}
+
 /* line 1, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/DeviseForms.scss */
 #devise-form {
   padding: 10px;
@@ -1298,10 +1355,10 @@ img.scale-with-grid {
 .form-container {
   width: 50%;
   margin: auto;
-  color: #6C6488;
-  background-color: linen;
+  color: #002B7F;
+  background-color: #E5E5E5;
   padding: 30px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 3px 3px 10px #1F1F1F;
   text-align: center;
 }
 /* line 14, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/DeviseForms.scss */
@@ -1351,18 +1408,129 @@ img.scale-with-grid {
   font-family: 'Poiret One';
   font-weight: bolder;
   font-size: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #001640;
   margin: 0;
 }
 
-/* line 23, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
-#nav-bar {
-  background: #6BBAA7;
+/* line 27, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+.container {
+  position: relative;
+  margin: 0 auto;
+}
+
+/* line 32, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+#nav {
+  font-size: 0;
+}
+
+/* line 36, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+#nav ul {
+  left: 0;
+  right: 0;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display: inline-block;
+  list-style-type: none;
+  list-style: none;
+  font-size: 0;
+}
+
+/* line 48, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+#nav li {
+  width: 50%;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+/* line 54, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+#nav a {
+  color: #E5E5E5;
+  position: relative;
+  width: 100%;
+  height: 30px;
+  padding: 6px 0;
+  line-height: 30px;
+  background-color: #000D26;
+  text-align: center;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
+}
+/* line 72, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+#nav a:hover {
+  background-color: #002B7F;
+}
+
+@media (min-width: 550px) {
+  /* line 93, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+  #nav li {
+    text-align: center;
+    width: auto;
+  }
+
+  /* line 98, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+  #nav a {
+    box-shadow: 0 4px #0056FF;
+  }
+
+  /* line 102, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+  #nav a {
+    padding: 6px;
+    border-right: 1px solid #001640;
+    width: 80px;
+  }
+
+  /* line 108, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+  #nav li:nth-child(2n+1) a:after {
+    content: none;
+  }
+
+  /* line 112, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/NavBar.scss */
+  #nav li:last-child a {
+    border-right: none;
+  }
+}
+/* line 1, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/account-tile.scss */
+.card-box {
+  color: #3D3D3D;
+  font-size: 20px;
+  text-align: right;
+  padding: 2rem 1rem 2rem 1rem;
+  box-shadow: 0.3rem 0.5rem #3D3D3D;
+  border: 2px solid #0041BF;
+  border-top: none;
+  margin-bottom: 5rem;
+}
+/* line 12, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/account-tile.scss */
+.card-box .official-name {
+  font-size: 2.2rem;
+  font-weight: bolder;
+}
+/* line 17, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/account-tile.scss */
+.card-box .balance {
+  font-size: 2.5rem;
+  padding-right: 1rem;
+  box-shadow: 0.3rem 0.3rem #001640;
+}
+
+/* line 24, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/account-tile.scss */
+.card-info {
+  background-color: #000D26;
+  color: #E5E5E5;
+  padding: 7rem 2.5rem 7rem 2.5rem;
+  margin: 3rem;
+  border-radius: 2rem;
 }
 
 /* line 1, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/information.scss */
 .info {
-  background-color: #FBA100;
+  background-color: #000D26;
   width: 40%;
   float: left;
   position: relative;
@@ -1379,7 +1547,7 @@ img.scale-with-grid {
   letter-spacing: 3px;
   font-weight: 900;
   font-style: italic;
-  color: #666;
+  color: #B0B0B0;
   margin-bottom: 1.5rem;
 }
 /* line 25, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/information.scss */
@@ -1389,7 +1557,7 @@ img.scale-with-grid {
 
 /* line 30, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/information.scss */
 .setting {
-  background-color: #FBA100;
+  background-color: #000D26;
   width: 50%;
   float: right;
   position: relative;
@@ -1406,7 +1574,7 @@ img.scale-with-grid {
   letter-spacing: 3px;
   font-weight: 900;
   font-style: italic;
-  color: #666;
+  color: #B0B0B0;
   margin-bottom: 1.5rem;
 }
 /* line 54, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/information.scss */
@@ -1414,11 +1582,127 @@ img.scale-with-grid {
   margin-bottom: 1.5rem !important;
 }
 
+/* line 1, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-box {
+  color: #3D3D3D;
+  font-size: 20px;
+  text-align: right;
+  padding: 2rem 1rem 2rem 1rem;
+  background-color: #FFFFFF;
+  box-shadow: 0.3rem 0.5rem #3D3D3D;
+  border: 2px solid #0041BF;
+  margin-bottom: 3rem;
+}
+/* line 11, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-box .trans-name {
+  font-size: 2.2rem;
+  font-weight: bolder;
+}
+/* line 16, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-box .trans-amount {
+  font-size: 2.5rem;
+  padding-right: 1rem;
+  box-shadow: 0.3rem 0.3rem #001640;
+}
+
+/* line 23, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-total {
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  color: #E5E5E5;
+  background-color: #000D26;
+  text-align: center;
+  border: 4px solid #0041BF;
+  margin-bottom: 3rem;
+}
+/* line 31, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-total h1 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+/* line 36, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-total h4 {
+  color: #B0B0B0;
+}
+
+/* line 41, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-budget {
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  color: #E5E5E5;
+  background-color: #000D26;
+  text-align: center;
+  border: 4px solid #0041BF;
+  margin-bottom: 3rem;
+}
+/* line 50, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-budget h1 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+/* line 55, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.purchase-budget h4 {
+  color: #B0B0B0;
+}
+
+/* line 60, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.same-height {
+  display: -ms-flexbox;
+}
+/* line 62, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+.same-height .columns {
+  flex: 1;
+}
+
+/* line 67, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+#pagination {
+  text-align: center;
+  padding: 40px;
+}
+
+/* line 72, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/purchase-tile.scss */
+#page-number-container {
+  display: inline-block;
+  margin: auto;
+}
+
+/* line 1, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/settings-container.scss */
+.budget-form {
+  color: #E5E5E5;
+  font-size: 35px;
+  text-align: center;
+  padding: 2rem 1rem 2rem 1rem;
+  background-color: #000D26;
+  border: 2px solid #0041BF;
+  margin-bottom: 5rem;
+}
+/* line 10, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/settings-container.scss */
+.budget-form label {
+  margin: 0;
+  margin-top: 1.8rem;
+}
+/* line 14, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/settings-container.scss */
+.budget-form input {
+  margin: 0;
+  margin-left: 20px;
+  text-align: right;
+}
+/* line 20, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/settings-container.scss */
+.budget-form .row {
+  margin: 0;
+}
+/* line 24, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/settings-container.scss */
+.budget-form .budget-button {
+  margin-top: 2rem;
+  background-color: #FFFFFF;
+  padding: 12px 15px;
+  position: bottom;
+  text-align: center;
+}
+
 /* line 1, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/utility-nav.scss */
 #utility-nav {
-  color: white;
+  color: #FFFFFF;
   padding: 0px 30px;
-  background: #111;
+  background: #001640;
 }
 
 /* line 7, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton/themes/swipe/utility-nav.scss */
@@ -1427,65 +1711,10 @@ img.scale-with-grid {
   float: right;
 }
 
-/* line 24, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-.flash {
-  position: absolute;
-}
-
-/* line 28, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-html, body {
-  background-color: #6C6488;
-}
-
-/* line 33, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-.custom-button, input[type='submit'] {
-  padding: 7px 15px;
-  display: inline-block;
-  border: 1px solid linen;
-  vertical-align: middle;
-  margin: 0 0 0 20px;
-  color: linen;
-  text-decoration: none;
-  transition: all .1s ease-in;
-  height: auto;
-  line-height: 100%;
-  font-family: 'Raleway';
-  cursor: pointer;
-  border-radius: 0px;
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-weight: normal;
-}
-/* line 51, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-.custom-button:hover, input[type='submit']:hover {
-  background-color: linen;
-  color: #211216;
-}
-
-/* line 57, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-.tile-button {
-  color: #6C6488;
-  border-color: #6C6488;
-  font-size: 12px;
-  margin: 0 10px 0 0;
-}
-
-/* line 64, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-.active {
-  background-color: linen;
-  color: #211216;
-  cursor: default;
-}
-
-/* line 70, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
-a:visited {
-  color: linen;
-  opacity: 0.4;
-}
-
-/* line 75, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
+/* line 77, /Users/filbert0o/breakable_toy/swipe/app/assets/stylesheets/skeleton.scss */
 h1, h2, h3, h4, h5, h6 {
   color: inherit;
+  margin: 0;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -1502,3 +1731,4 @@ h1, h2, h3, h4, h5, h6 {
 
 
  */
+
