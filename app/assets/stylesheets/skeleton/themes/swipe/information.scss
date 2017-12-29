@@ -1,57 +1,84 @@
-.info {
-  background-color: $navy-blue;
-  width: 40%;
-
-  float: left;
-
-  position: relative;
-  right: -35%; /* or right 50% */
-  text-align: center;
-
-  padding: 50px;
-
-  max-width: 350px;
-
-    h4 {
-      text-transform: uppercase;
-      font-size: 1.5rem;
-      letter-spacing: 3px;
-      font-weight: 900;
-      font-style: italic;
-      color: $light-grey;
-      margin-bottom: 1.5rem;
+.info-container {
+  display: block;
+  transition: .1s ease-in;
+  width: 100%;
+  text-align: center !important;
+  .row {
+    margin: .2rem;
+    a .settings {
+      width: 50%;
+      border-radius: 50%;
     }
+  }
+  .columns {
+    margin: .7rem;
+  }
 
-    p {
-      margin-bottom: 1.5rem !important;
+
+  a {
+    color: $navy-blue;
+    text-decoration: none;
+    text-align: center;
+    align: center;
+    width: 50%;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: $pure-white;
+    border-radius: 1rem;
+    border: 2px solid $navy-blue;
+
+    &:hover {
+      transition: .2s ease-in;
+      transition: .2s ease-out;
+      background: $blue-4;
+      color: $off-white;
+      font-size: 4rem;
+      height: 260px;
+      line-height: 260px;
     }
+  }
 }
 
-.setting {
-  background-color: $navy-blue;
-  width: 50%;
-
+.authentication {
   float: right;
+  transition: .1s ease-in;
+  text-align: center !important;
+  background: $navy-blue;
+  a {
+    text-decoration: none;
+  }
+}
 
-  position: relative;
-  left: -40%; /* or right 50% */
-  text-align: center;
+.plaid-link {
+  background: $navy-blue !important;
+  width: 100%;
+  height: 200px;
 
-  padding: 50px;
+  span {
+    color: $pure-white;
+    font-size: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 
-  max-width: 350px;
+  &:hover {
+    transition: .2s ease-in;
+    background: $off-white !important;
+    border-color: $navy-blue !important;
+    padding: 5rem;
 
-    h4 {
-      text-transform: uppercase;
-      font-size: 1.5rem;
-      letter-spacing: 3px;
-      font-weight: 900;
-      font-style: italic;
-      color: $light-grey;
-      margin-bottom: 1.5rem;
+    span {
+      color: $navy-blue;
     }
+  }
+}
 
-    p {
-      margin-bottom: 1.5rem !important;
-    }
+.plaid-home {
+  a {
+    color: $dark-grey-1;
+    text-decoration: none;
+  }
 }

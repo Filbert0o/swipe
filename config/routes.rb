@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :users, only:[:index]
       resources :plaid_authentications, only:[:create]
       resources :categories, only: [:index]
       resources :accounts, only: [:index]

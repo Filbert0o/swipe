@@ -1,6 +1,5 @@
-# class UsersController < ApplicationController
-#   def index
-#     budget
-#     render json: {user: current_user}
-#   end
-# end
+class Api::V1::UsersController < ApplicationController
+  def index
+    render json: {user: current_user}
+  end
+end

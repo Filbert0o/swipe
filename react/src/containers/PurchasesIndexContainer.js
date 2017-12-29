@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import PurchasesIndexTile from "../components/PurchasesIndexTile"
 import PurchaseTotal from "../components/PurchaseTotal"
 
@@ -12,8 +13,29 @@ class PurchasesIndexContainer extends Component {
       currentPage: 1,
       purchasesPerPage: 10
     }
-
     this.handlePagination = this.handlePagination.bind(this)
+  }
+
+  getCurrentUser(){
+    fetch('/api/v1/users', {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        currentUser: body.user
+      })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   getPurchases() {
@@ -65,6 +87,7 @@ class PurchasesIndexContainer extends Component {
   }
 
   componentDidMount(){
+    this.getCurrentUser();
     this.getPurchases();
     this.getBudget();
   }
@@ -119,20 +142,47 @@ class PurchasesIndexContainer extends Component {
         </div>
       )
     })
-    return(
-      <div>
-        <PurchaseTotal
-          purchases={this.state.purchases}
-          budget={this.state.budget}
-        />
-        {purchases}
-        <div id='pagination'>
-          <div id='page-number-container'>
-            {renderPageNumbers}
+
+    let plaidLink = () => {
+      if (localStorage.getItem('accessToken') === '') {
+        return(
+          <div className='plaid-home'>
+            <button><Link to={'/'}>Link Your Bank First</Link></button>
+          </div>
+        )
+      } else {
+        return(<div></div>)
+      }
+    }
+
+    if (this.state.currentUser) {
+      return(
+        <div>
+          {plaidLink()}
+          <PurchaseTotal
+            purchases={this.state.purchases}
+            budget={this.state.budget}
+          />
+          {purchases}
+          <div id='pagination'>
+            <div id='page-number-container'>
+              {renderPageNumbers}
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return(
+        <div>
+          <button className='authentication'>
+            <a href='/users/sign_in'>Log In</a>
+          </button>
+          <button className='authentication'>
+            <a href='/users/sign_up'>Sign Up</a>
+          </button>
+        </div>
+      )
+    }
   }
 }
 export default PurchasesIndexContainer;
