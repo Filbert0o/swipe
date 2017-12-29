@@ -12,7 +12,7 @@ const App = props => {
     <div>
       <Router history={browserHistory}>
         <Route path='/' component={NavBar}>
-          <IndexRoute component={Plaid} />
+          <IndexRoute component={InformationsIndex} />
           <Route path='/informations' component={InformationsIndex}/>
           <Route path='/accounts' component={AccountsIndexContainer} />
           <Route path='/purchases' component={PurchasesIndexContainer} />

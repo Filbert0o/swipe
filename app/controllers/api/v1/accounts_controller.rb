@@ -1,5 +1,7 @@
 # Api::V1::AccountsController
 class Api::V1::AccountsController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
   # def index
   #   accounts = Account.all
   #   render json: accounts

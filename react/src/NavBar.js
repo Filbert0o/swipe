@@ -8,7 +8,7 @@ const NavBar = props =>{
         <div id='billboard'>
           <Link to={`/`}><h2>SWIPE</h2></Link>
         </div>
-        <div className='container'>
+        <div>
           <div className='row'>
             <div className='twelve columns'>
                 <ul id='nav'>
@@ -17,7 +17,6 @@ const NavBar = props =>{
                   <li><Link to={`/purchases`}>Purchase</Link></li>
                   <li><Link to={`/`}>SandBox</Link></li>
                   <li><Link to={`/settings`}>Setting</Link></li>
-
                 </ul>
             </div>
           </div>

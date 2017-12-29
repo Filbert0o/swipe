@@ -5,8 +5,32 @@ class Plaid extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentUser: null,
+      accessToken: localStorage.getItem('accessToken') || ''
     }
     this.handleOnSuccess = this.handleOnSuccess.bind(this)
+  }
+
+  getCurrentUser(){
+    fetch('/api/v1/users', {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        currentUser: body.user
+      })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleOnSuccess(token, metadata) {
@@ -27,6 +51,7 @@ class Plaid extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      localStorage.setItem('accessToken', body.access_token)
       this.setState({
         accessToken: body.access_token
       })
@@ -34,18 +59,42 @@ class Plaid extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
+  componentDidMount() {
+    this.getCurrentUser();
+  }
 
   render() {
-    return(
-      <PlaidLink
-        publicKey='4471d2317cf2085628c5c3a0941cba'
-        product='auth'
-        env='development'
-        clientName='PlaidSwipe'
-        onSuccess={this.handleOnSuccess}
-      />
-    )
+    if (this.state.accessToken === '' && this.state.currentUser) {
+      return(
+        <PlaidLink
+          className='plaid-link'
+          publicKey='4471d2317cf2085628c5c3a0941cba'
+          product='auth'
+          env='development'
+          clientName='Swipe'
+          onSuccess={this.handleOnSuccess}
+          buttonText='Link Bank'
+        />
+      )
+    }
+    else if (this.state.currentUser === null) {
+      localStorage.setItem('accessToken', '')
+      return(
+        <div>
+          <button className='authentication'>
+            <a className='sign-in-button' href='/users/sign_in'>Log In</a>
+          </button>
+          <button className='authentication'>
+            <a className='sign-up-button' href='/users/sign_up'>Sign Up</a>
+          </button>
+        </div>
+      )
+    }
+    else {
+      return(
+        <div>Successfully linked your bank!</div>
+      )
+    }
   }
 }
 export default Plaid;

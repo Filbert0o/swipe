@@ -14,6 +14,7 @@
 @import "skeleton/loader";
 
 // Import Google Fonts
+@import url('https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
@@ -25,7 +26,8 @@
 
 html, body {
   // min-width: 1124px;
-  background-color: $off-white;
+  background: $off-white;
+  font-family: 'Open Sans', 'Monospace';
 }
 
 .custom-button, input[type='submit'] {
@@ -40,7 +42,7 @@ html, body {
   transition: all .1s ease-in;
   height: auto;
   line-height: 100%;
-  font-family: 'Raleway';
+  font-family: 'Open Sans';
   cursor: pointer;
   border-radius: 0px;
   text-transform: uppercase;
@@ -77,4 +79,5 @@ a:visited {
 h1, h2, h3, h4, h5, h6 {
   color: inherit;
   margin: 0;
+  font-family: 'Open Sans', 'Monospace';
 }

@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import AccountsIndexTile from "../components/AccountsIndexTile";
 import BankInstitution from "../components/BankInstitution"
 
-class App extends Component {
+class AccountsIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentUser: null,
       accounts: [],
       institution: ''
     }
 
+  }
+
+  getCurrentUser(){
+    fetch('/api/v1/users', {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        currentUser: body.user
+      })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   getAccount(){
@@ -57,6 +81,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getCurrentUser();
     this.getAccount();
     this.getInstitution();
   }
@@ -79,14 +104,41 @@ class App extends Component {
         />
       )
     })
-    return(
-      <div>
-        <BankInstitution
-          institution={this.state.institution}
-        />
-        {accounts}
-      </div>
-    )
+
+    let plaidLink = () => {
+      if (localStorage.getItem('accessToken') === '') {
+        return(
+          <div className='plaid-home'>
+            <button><Link to={'/'}>Link Your Bank First</Link></button>
+          </div>
+        )
+      } else {
+        return(<div></div>)
+      }
+    }
+
+    if (this.state.currentUser) {
+      return(
+        <div>
+          {plaidLink()}
+          <BankInstitution
+            institution={this.state.institution}
+          />
+          {accounts}
+        </div>
+      )
+    } else {
+        return(
+          <div>
+            <button className='authentication'>
+              <a href='/users/sign_in'>Log In</a>
+            </button>
+            <button className='authentication'>
+              <a href='/users/sign_up'>Sign Up</a>
+            </button>
+          </div>
+        )
+    }
   }
 }
-export default App;
+export default AccountsIndexContainer;
