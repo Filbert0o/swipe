@@ -13,12 +13,14 @@ const PurchaseTotal = props =>{
     if (!currentCategories.includes("Deposit")) {
       amounts.push(purchase.amount)
     }
+    if (purchase.category === null && purchase.name !== 'Counter Credit') {
+      amounts.push(purchase.amount)
+    }
   })
   const postive = amounts.filter(amount => amount > 0)
   const postiveSum = postive.reduce((a, b) => a + b, 0)
   const negative = amounts.filter(amount => amount < 0)
   const negativeSum = negative.reduce((a, b) => a + b, 0)
-
   const totalPurchasesAmount = postiveSum + negativeSum
 
   return(
