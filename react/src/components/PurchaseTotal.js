@@ -13,6 +13,9 @@ const PurchaseTotal = props =>{
     if (!currentCategories.includes("Deposit")) {
       amounts.push(purchase.amount)
     }
+    if (!currentCategories.includes("Payroll")) {
+      amounts.push(purchase.amount)
+    }
     if (purchase.category === null && purchase.name !== 'Counter Credit') {
       amounts.push(purchase.amount)
     }

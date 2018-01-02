@@ -144,7 +144,7 @@ class PurchasesIndexContainer extends Component {
     })
 
     let plaidLink = () => {
-      if (localStorage.getItem('accessToken') === '') {
+      if (Cookies.get('accessToken') === undefined) {
         return(
           <div className='plaid-home'>
             <button><Link to={'/'}>Link Your Bank First</Link></button>

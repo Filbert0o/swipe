@@ -6,7 +6,7 @@ class Plaid extends Component {
     super(props);
     this.state = {
       currentUser: null,
-      accessToken: localStorage.getItem('accessToken') || ''
+      accessToken: Cookies.get('accessToken') || null
     }
     this.handleOnSuccess = this.handleOnSuccess.bind(this)
   }
@@ -51,9 +51,10 @@ class Plaid extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      localStorage.setItem('accessToken', body.access_token)
+      Cookies.set('accessToken', body.access_token)
+      debugger
       this.setState({
-        accessToken: body.access_token
+        accessToken: Cookies.get('accessToken')
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -64,7 +65,8 @@ class Plaid extends Component {
   }
 
   render() {
-    if (this.state.accessToken === '' && this.state.currentUser) {
+    debugger
+    if (this.state.accessToken === null && this.state.currentUser) {
       return(
         <PlaidLink
           className='plaid-link'
@@ -78,7 +80,7 @@ class Plaid extends Component {
       )
     }
     else if (this.state.currentUser === null) {
-      localStorage.setItem('accessToken', '')
+      Cookies.remove('accessToken');
       return(
         <div>
           <button className='authentication'>
