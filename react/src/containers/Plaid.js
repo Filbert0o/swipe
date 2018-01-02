@@ -5,7 +5,7 @@ class Plaid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: null,
+      currentUser: Cookies.get('currentUser') || null,
       accessToken: Cookies.get('accessToken') || null
     }
     this.handleOnSuccess = this.handleOnSuccess.bind(this)
@@ -26,6 +26,7 @@ class Plaid extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      Cookies.set('currentUser', body.user)
       this.setState({
         currentUser: body.user
       })
@@ -52,7 +53,6 @@ class Plaid extends Component {
     .then(response => response.json())
     .then(body => {
       Cookies.set('accessToken', body.access_token)
-      debugger
       this.setState({
         accessToken: Cookies.get('accessToken')
       })
@@ -65,7 +65,6 @@ class Plaid extends Component {
   }
 
   render() {
-    debugger
     if (this.state.accessToken === null && this.state.currentUser) {
       return(
         <PlaidLink
