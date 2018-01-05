@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :settings, only: [:index]
   resources :accounts, only: [:index]
   resources :purchases, only: [:index]
+  resources :subscriptions, only: [:index]
 
   namespace :api do
     namespace :v1 do

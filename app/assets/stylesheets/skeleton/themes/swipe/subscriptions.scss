@@ -1,0 +1,24 @@
+.subscription-box {
+  color: $dark-grey-1;
+  font-size: 20px;
+  text-align: center;
+  padding: 2rem 1rem 2rem 1rem;
+  background-color: $pure-white;
+  box-shadow: 0.3rem 0.5rem $dark-grey-1;
+  border: 2px solid $blue-2;
+  margin-bottom: 3rem;
+
+  .name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .date {
+    color: $dark-grey-1;
+  }
+
+  .amount {
+    color: $dark-grey-1;
+  }
+}

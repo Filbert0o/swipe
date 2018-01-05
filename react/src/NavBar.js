@@ -13,7 +13,7 @@ const NavBar = props =>{
             <div className='twelve columns'>
                 <ul id='nav'>
                   <li><Link to={`/accounts`}>Account</Link></li>
-                  <li><Link to={`/`}>Subscription</Link></li>
+                  <li><Link to={`/subscriptions`}>Subscription</Link></li>
                   <li><Link to={`/purchases`}>Purchase</Link></li>
                   <li><Link to={`/`}>SandBox</Link></li>
                   <li><Link to={`/settings`}>Setting</Link></li>

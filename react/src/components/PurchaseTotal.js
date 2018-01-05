@@ -1,8 +1,15 @@
 import React from 'react';
 
 const PurchaseTotal = props =>{
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let currentMonth = null;
+  months.forEach((month, index) => {
+    if (index === (new Date).getUTCMonth()) {
+      currentMonth = month
+    }
+  })
 
-  const amounts = []
+  const amounts = [];
   props.purchases.forEach((purchase) => {
     let currentCategories = []
     if (purchase.category) {
@@ -13,12 +20,18 @@ const PurchaseTotal = props =>{
     if (!currentCategories.includes("Deposit")) {
       amounts.push(purchase.amount)
     }
+    else if (!currentCategories.includes("Payroll")) {
+      amounts.push(purchase.amount)
+    }
+    else if (purchase.category === null && purchase.name !== 'Counter Credit') {
+      amounts.push(purchase.amount)
+    }
   })
+  
   const postive = amounts.filter(amount => amount > 0)
   const postiveSum = postive.reduce((a, b) => a + b, 0)
   const negative = amounts.filter(amount => amount < 0)
   const negativeSum = negative.reduce((a, b) => a + b, 0)
-
   const totalPurchasesAmount = postiveSum + negativeSum
 
   return(
@@ -27,7 +40,7 @@ const PurchaseTotal = props =>{
         <div className='purchase-total'>
           <h4>You Have Spent</h4>
           <h1>${Math.round(totalPurchasesAmount * 100)/100}</h1>
-          <h4>In the last 30 days</h4>
+          <h4>In {currentMonth}</h4>
         </div>
       </div>
       <div className='six columns'>

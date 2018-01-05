@@ -12,31 +12,31 @@ const InformationsIndex = props =>{
       </div>
       <div className='info-container'>
         <div className='row'>
-          <Link className='six columns' to={'/accounts'}>
+          <Link className='six columns hvr-grow-shadow' to={'/accounts'}>
             <div>
               ACCOUNT
             </div>
           </Link>
-          <Link className='six columns' to={'/purchases'}>
+          <Link className='six columns hvr-grow-shadow' to={'/purchases'}>
             <div>
               PURCHASES
             </div>
           </Link>
         </div>
         <div className='row'>
-          <Link className='six columns' to={'/'}>
+          <Link className='six columns hvr-grow-shadow' to={'/subscriptions'}>
             <div>
               SUBSCRIPTION
             </div>
           </Link>
-          <Link className='six columns' to={'/'}>
+          <Link className='six columns hvr-grow-shadow' to={'/'}>
             <div>
               SANDBOX
             </div>
           </Link>
         </div>
         <div className='row'>
-          <Link className='twelve columns settings' to={'/settings'}>
+          <Link className='twelve columns settings hvr-grow-shadow' to={'/settings'}>
             <div>
               SETTINGS
             </div>

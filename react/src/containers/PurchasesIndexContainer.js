@@ -105,7 +105,15 @@ class PurchasesIndexContainer extends Component {
     const indexOfFirstVenue = indexOfLastPurchase - this.state.purchasesPerPage;
     const currentPurchases = this.state.purchases.slice(indexOfFirstVenue, indexOfLastPurchase);
 
-    let purchases = currentPurchases.map((purchase) => {
+    let getMonth = (dateStr) => {
+      let [year, month, day] = dateStr.split('-')
+      return (Number(month) - 1);
+    }
+
+    let monthPurchasesPag = currentPurchases.filter((purchase) => getMonth(purchase.date) === (new Date).getUTCMonth())
+    let monthPurchases = this.state.purchases.filter((purchase) => getMonth(purchase.date) === (new Date).getUTCMonth())
+
+    let purchases = monthPurchasesPag.map((purchase) => {
       return(
         <PurchasesIndexTile
           key={purchase.transaction_id}
@@ -120,7 +128,7 @@ class PurchasesIndexContainer extends Component {
 
     // Logic for displaying page numbers
     const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(this.state.purchases.length / this.state.purchasesPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(monthPurchases.length / this.state.purchasesPerPage); i++) {
       pageNumbers.push(i);
     }
 
@@ -144,7 +152,7 @@ class PurchasesIndexContainer extends Component {
     })
 
     let plaidLink = () => {
-      if (localStorage.getItem('accessToken') === '') {
+      if (Cookies.get('accessToken') === undefined) {
         return(
           <div className='plaid-home'>
             <button><Link to={'/'}>Link Your Bank First</Link></button>
@@ -160,7 +168,7 @@ class PurchasesIndexContainer extends Component {
         <div>
           {plaidLink()}
           <PurchaseTotal
-            purchases={this.state.purchases}
+            purchases={monthPurchases}
             budget={this.state.budget}
           />
           {purchases}
