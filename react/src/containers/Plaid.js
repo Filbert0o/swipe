@@ -68,7 +68,7 @@ class Plaid extends Component {
     if (this.state.accessToken === null && this.state.currentUser) {
       return(
         <PlaidLink
-          className='plaid-link'
+          className='plaid-link hvr-grow-shadow'
           publicKey='4471d2317cf2085628c5c3a0941cba'
           product='auth'
           env='development'

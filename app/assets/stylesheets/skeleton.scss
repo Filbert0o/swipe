@@ -14,6 +14,7 @@
 @import "skeleton/loader";
 
 // Import Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 @import url('https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
@@ -27,7 +28,7 @@
 html, body {
   // min-width: 1124px;
   background: $off-white;
-  font-family: 'Open Sans', 'Monospace';
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .custom-button, input[type='submit'] {
@@ -42,7 +43,7 @@ html, body {
   transition: all .1s ease-in;
   height: auto;
   line-height: 100%;
-  font-family: 'Open Sans';
+  font-family: 'Noto Sans', sans-serif;
   cursor: pointer;
   border-radius: 0px;
   text-transform: uppercase;
@@ -56,6 +57,7 @@ html, body {
 }
 
 .tile-button {
+  font-family: 'Noto Sans', sans-serif;
   color: $off-white;
   border-color: $off-white;
   font-size: 12px;
@@ -73,11 +75,31 @@ a:visited {
   opacity: 0.4;
 }
 
+/* Grow Shadow */
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  background-color: $blue-4;
+  color: $off-white;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 // Import Custom Theme Styles
 @import 'skeleton/themes/swipe/*';
 
 h1, h2, h3, h4, h5, h6 {
   color: inherit;
   margin: 0;
-  font-family: 'Open Sans', 'Monospace';
+  font-family: 'Noto Sans', sans-serif;
 }
